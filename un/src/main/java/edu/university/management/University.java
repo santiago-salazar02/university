@@ -15,6 +15,26 @@ public class University {
         return University.teachers;
     }
 
+    @Override
+    public String toString(){
+        StringBuilder teacherData = new StringBuilder();
+        teacherData.append("Teachers:\n");
+        for(Teacher teacher: teachers){
+            teacherData.append(teacher.toString()).append("\n");
+        }
+        StringBuilder studentData = new StringBuilder();
+        studentData.append("Students:\n");
+        for(Student student: students){
+            studentData.append(student.toString()).append("\n");
+        }
+        StringBuilder classesData = new StringBuilder();
+        classesData.append("Classes:\n");
+        for(Class aclass: classes){
+            classesData.append(aclass.toString()).append("\n");
+        }
+        return teacherData.toString()+studentData.toString()+classesData.toString();
+    }
+
     public static void setTeachers(List<Teacher> teachers) {
         University.teachers = teachers;
     }
