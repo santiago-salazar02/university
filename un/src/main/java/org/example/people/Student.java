@@ -2,9 +2,9 @@ package org.example.people;
 
 public class Student extends Person{
 
-    public static long uId;
-    public long id;
-    public int age;
+    private static long uId;
+    private long id;
+    private int age;
 
     public Student(String name,int age) {
         super(name);
