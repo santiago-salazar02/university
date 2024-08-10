@@ -12,7 +12,7 @@ public class PartTimeTeacher extends Teacher {
 
     @Override
     public void updateSalary(){
-        double salary = this.workedHours* getBaseSalary();
+        double salary = this.workedHours*Teacher.getBaseSalary();
         setSalary(salary);
     }
 

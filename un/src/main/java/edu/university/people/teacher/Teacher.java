@@ -15,6 +15,10 @@ public class Teacher extends Person {
 
     }
 
+    @Override
+    public String toString(){
+        return "Name: " + this.getName() + " Salary: " + this.salary;
+    }
     public double getSalary() {
         return this.salary;
     }
