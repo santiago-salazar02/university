@@ -13,6 +13,11 @@ public class Student extends Person{
         Student.uId++;
     }
 
+    @Override
+    public String toString(){
+        return "Id: " + this.id + " Name: " + getName() + " Age: " + this.age;
+    }
+
     public static long getuId() {
         return Student.uId;
     }
