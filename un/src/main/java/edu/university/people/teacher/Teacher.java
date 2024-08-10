@@ -19,7 +19,6 @@ public class Teacher extends Person {
     public String toString(){
         return "Name: " + this.getName() + " Salary: " + this.salary;
     }
-
     public double getSalary() {
         return this.salary;
     }
