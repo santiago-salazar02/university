@@ -1,6 +1,6 @@
-package org.example.people.teacher;
+package edu.university.people.teacher;
 
-import org.example.people.Person;
+import edu.university.people.Person;
 
 public class Teacher extends Person {
 
@@ -13,6 +13,11 @@ public class Teacher extends Person {
 
     public void updateSalary(){
 
+    }
+
+    @Override
+    public String toString(){
+        return "Name: " + this.getName() + " Salary: " + this.salary;
     }
 
     public double getSalary() {
