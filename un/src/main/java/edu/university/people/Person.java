@@ -1,10 +1,12 @@
 package edu.university.people;
 
+import edu.university.helpers.Format;
+
 public class Person {
     private String name;
 
     public Person(String name){
-        this.name = name;
+        setName(name);
     }
 
     public String getName() {
@@ -12,6 +14,6 @@ public class Person {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = Format.formatName(name);
     }
 }
