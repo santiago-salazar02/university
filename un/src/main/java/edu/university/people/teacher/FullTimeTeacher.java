@@ -1,4 +1,4 @@
-package org.example.people.teacher;
+package edu.university.people.teacher;
 
 public class FullTimeTeacher extends Teacher{
 
