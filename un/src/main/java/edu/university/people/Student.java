@@ -12,7 +12,12 @@ public class Student extends Person{
         this.id = Student.uId;
         Student.uId++;
     }
-
+  
+    @Override
+    public String toString(){
+        return "Id: " + this.id + " Name: " + getName() + " Age: " + this.age;
+    }
+  
     public static long getuId() {
         return Student.uId;
     }
