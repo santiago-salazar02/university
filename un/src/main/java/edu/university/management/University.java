@@ -5,6 +5,7 @@ import edu.university.people.teacher.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class University {
     private static List<Teacher> teachers = new ArrayList<Teacher>();
@@ -15,24 +16,76 @@ public class University {
         return University.teachers;
     }
 
-    @Override
-    public String toString(){
+    // Teachers
+    public String getTeachersInfo(){
         StringBuilder teacherData = new StringBuilder();
         teacherData.append("Teachers:\n");
-        for(Teacher teacher: teachers){
+        for(Teacher teacher: University.teachers){
             teacherData.append(teacher.toString()).append("\n");
         }
+        return teacherData.toString();
+    }
+
+    public int searchByTeacherName(String name){
+        for(int i = 0; i < University.teachers.size();i++){
+            if(Objects.equals(University.teachers.get(i).getName(), name)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void addTeacher(Teacher teacher){
+        University.teachers.add(teacher);
+    }
+
+    public void deleteTeacher(Teacher teacher){
+        University.teachers.remove(teacher);
+    }
+
+    // Students
+    public String getStudentsInfo(){
         StringBuilder studentData = new StringBuilder();
         studentData.append("Students:\n");
-        for(Student student: students){
+        for(Student student: University.students){
             studentData.append(student.toString()).append("\n");
         }
+        return studentData.toString();
+    }
+
+    public void addStudent(Student student){
+        University.students.add(student);
+    }
+
+    public void deleteStudent(Student student){
+        University.students.remove(student);
+    }
+
+    // Classes
+    public String getClassesInfo(){
         StringBuilder classesData = new StringBuilder();
         classesData.append("Classes:\n");
-        for(Class aclass: classes){
+        for(Class aclass: University.classes){
             classesData.append(aclass.toString()).append("\n");
         }
-        return teacherData.toString()+studentData.toString()+classesData.toString();
+        return classesData.toString();
+    }
+
+    public void addClass(Class aclass){
+        University.classes.add(aclass);
+    }
+
+    public void deleteClass(Class aclass){
+        University.classes.remove(aclass);
+    }
+
+
+    @Override
+    public String toString(){
+
+        return this.getTeachersInfo()+
+                this.getStudentsInfo()+
+                this.getClassesInfo();
     }
 
     public static void setTeachers(List<Teacher> teachers) {
