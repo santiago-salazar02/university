@@ -1,4 +1,4 @@
-package org.example.people;
+package edu.university.people;
 
 public class Person {
     private String name;

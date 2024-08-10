@@ -1,4 +1,4 @@
-package org.example.people.teacher;
+package edu.university.people.teacher;
 
 public class PartTimeTeacher extends Teacher {
 
@@ -12,7 +12,7 @@ public class PartTimeTeacher extends Teacher {
 
     @Override
     public void updateSalary(){
-        double salary = this.workedHours*Teacher.getBaseSalary();
+        double salary = this.workedHours* getBaseSalary();
         setSalary(salary);
     }
 

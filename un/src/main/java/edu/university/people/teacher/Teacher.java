@@ -1,6 +1,6 @@
-package org.example.people.teacher;
+package edu.university.people.teacher;
 
-import org.example.people.Person;
+import edu.university.people.Person;
 
 public class Teacher extends Person {
 
