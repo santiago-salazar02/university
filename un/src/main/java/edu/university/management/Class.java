@@ -23,6 +23,17 @@ public class Class {
         return this.name;
     }
 
+    @Override
+    public String toString(){
+        String classData = "Class: " + this.name + " Classroom: " + this.classroom +
+                "Teacher: " + this.teacher.getName() + "\n";
+        StringBuilder studentData = new StringBuilder();
+        for(Student student: students){
+            studentData.append(student.toString()).append("\n");
+        }
+        return classData+studentData.toString();
+    }
+
     public void setName(String name) {
         this.name = name;
     }
