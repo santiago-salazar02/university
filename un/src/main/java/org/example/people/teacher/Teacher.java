@@ -7,9 +7,12 @@ public class Teacher extends Person {
     private double salary;
     private static double baseSalary;
 
-    public Teacher(String name,double salary) {
+    public Teacher(String name) {
         super(name);
-        this.salary = salary;
+    }
+
+    public void updateSalary(){
+
     }
 
     public double getSalary() {
@@ -21,11 +24,11 @@ public class Teacher extends Person {
     }
 
     public static double getBaseSalary() {
-        return baseSalary;
+        return Teacher.baseSalary;
     }
 
     public static void setBaseSalary(double baseSalary) {
         Teacher.baseSalary = baseSalary;
     }
-    
+
 }
