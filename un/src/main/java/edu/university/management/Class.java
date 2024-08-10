@@ -34,6 +34,15 @@ public class Class {
         return classData+studentData.toString();
     }
 
+    public boolean isStudentInClass(long id){
+        for(Student student:students){
+            if(student.getId() == id){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
