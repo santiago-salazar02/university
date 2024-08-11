@@ -18,7 +18,7 @@ public class University {
     }
 
     // Teachers
-    public String getTeachersInfo(){
+    public static String getTeachersInfo(){
         StringBuilder teacherData = new StringBuilder();
         teacherData.append("Teachers:\n");
         for(Teacher teacher: University.teachers){
@@ -27,7 +27,7 @@ public class University {
         return teacherData.toString();
     }
 
-    public int searchByTeacherName(String name){
+    public static int searchByTeacherName(String name){
         for(int i = 0; i < University.teachers.size();i++){
             if(Objects.equals(University.teachers.get(i).getName(), Format.formatName(name))){
                 return i;
@@ -36,16 +36,21 @@ public class University {
         return -1;
     }
 
-    public void addTeacher(Teacher teacher){
+    public static void addTeacher(Teacher teacher){
         University.teachers.add(teacher);
     }
 
-    public void deleteTeacher(Teacher teacher){
+    public static void deleteTeacher(Teacher teacher){
         University.teachers.remove(teacher);
+        for(Class aclass: classes){
+            if(Objects.equals(teacher.getName(),aclass.getTeacher().getName())){
+                aclass.setTeacher(null);
+            }
+        }
     }
 
     // Students
-    public String getStudentsInfo(){
+    public static String getStudentsInfo(){
         StringBuilder studentData = new StringBuilder();
         studentData.append("Students:\n");
         for(Student student: University.students){
@@ -54,11 +59,20 @@ public class University {
         return studentData.toString();
     }
 
-    public void addStudent(Student student){
+    public static int searchByStudentId(long id){
+        for(int i = 0; i < University.students.size(); i++){
+            if(University.students.get(i).getId() == id){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void addStudent(Student student){
         University.students.add(student);
     }
 
-    public void deleteStudent(Student student){
+    public static void deleteStudent(Student student){
         University.students.remove(student);
         for(Class aclass: classes){
             if(aclass.isStudentInClass(student.getId())){
@@ -67,7 +81,7 @@ public class University {
         }
     }
 
-    public String getStudentClasses(long id){
+    public static String getStudentClasses(long id){
         StringBuilder studentData = new StringBuilder();
         studentData.append("Classes:\n");
         for(Class aclass: classes){
@@ -79,7 +93,7 @@ public class University {
     }
 
     // Classes
-    public String getClassesInfo(){
+    public static String getClassesInfo(){
         StringBuilder classesData = new StringBuilder();
         classesData.append("Classes:\n");
         for(Class aclass: University.classes){
@@ -88,21 +102,20 @@ public class University {
         return classesData.toString();
     }
 
-    public void addClass(Class aclass){
+    public static void addClass(Class aclass){
         University.classes.add(aclass);
     }
 
-    public void deleteClass(Class aclass){
+    public static void deleteClass(Class aclass){
         University.classes.remove(aclass);
     }
 
 
-    @Override
-    public String toString(){
+    public static String getUniversityInfo(){
 
-        return this.getTeachersInfo()+
-                this.getStudentsInfo()+
-                this.getClassesInfo();
+        return University.getTeachersInfo()+
+                University.getStudentsInfo()+
+                University.getClassesInfo();
     }
 
     public static void setTeachers(List<Teacher> teachers) {
