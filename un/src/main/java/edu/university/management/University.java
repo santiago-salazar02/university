@@ -1,5 +1,6 @@
 package edu.university.management;
 
+import edu.university.helpers.Format;
 import edu.university.people.Student;
 import edu.university.people.teacher.Teacher;
 
@@ -28,7 +29,7 @@ public class University {
 
     public int searchByTeacherName(String name){
         for(int i = 0; i < University.teachers.size();i++){
-            if(Objects.equals(University.teachers.get(i).getName(), name)){
+            if(Objects.equals(University.teachers.get(i).getName(), Format.formatName(name))){
                 return i;
             }
         }
