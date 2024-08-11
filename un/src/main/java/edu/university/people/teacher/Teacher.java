@@ -5,13 +5,18 @@ import edu.university.people.Person;
 public class Teacher extends Person {
 
     private double salary;
-    private static double baseSalary;
+    private static double baseSalary = 100;
+    private static int maxLaborHours = 40;
 
     public Teacher(String name) {
         super(name);
     }
 
     public void updateSalary(){
+
+    }
+
+    public void updateWorkedHours(){
 
     }
 
@@ -35,4 +40,11 @@ public class Teacher extends Person {
         Teacher.baseSalary = baseSalary;
     }
 
+    public static int getMaxLaborHours() {
+        return maxLaborHours;
+    }
+
+    public static void setMaxLaborHours(int maxLaborHours) {
+        Teacher.maxLaborHours = maxLaborHours;
+    }
 }

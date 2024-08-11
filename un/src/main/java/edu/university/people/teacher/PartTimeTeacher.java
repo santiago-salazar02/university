@@ -12,8 +12,15 @@ public class PartTimeTeacher extends Teacher {
 
     @Override
     public void updateSalary(){
-        double salary = this.workedHours*Teacher.getBaseSalary();
+        double salary = (double) 4*this.workedHours /Teacher.getMaxLaborHours()*Teacher.getBaseSalary();
         setSalary(salary);
+    }
+
+    @Override
+    public void updateWorkedHours(){
+        if(this.workedHours >= Teacher.getMaxLaborHours()){
+            this.workedHours = Teacher.getMaxLaborHours()-1;
+        }
     }
 
     public int getWorkedHours() {

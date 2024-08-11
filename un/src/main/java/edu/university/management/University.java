@@ -20,6 +20,7 @@ public class University {
     // Teachers
     public static String getTeachersInfo(){
         StringBuilder teacherData = new StringBuilder();
+        teacherData.append("Base salary: ").append(Teacher.getBaseSalary()).append("\n");
         teacherData.append("Teachers:\n");
         for(Teacher teacher: University.teachers){
             teacherData.append(teacher.toString()).append("\n");
@@ -46,6 +47,21 @@ public class University {
             if(Objects.equals(teacher.getName(),aclass.getTeacher().getName())){
                 aclass.setTeacher(null);
             }
+        }
+    }
+
+    public static void updateTeachersSalary(double baseSalary){
+        Teacher.setBaseSalary(baseSalary);
+        for(Teacher teacher:University.teachers){
+            teacher.updateSalary();
+        }
+    }
+
+    public static void updateLaborHours(int workHours){
+        Teacher.setMaxLaborHours(workHours);
+        for(Teacher teacher:University.teachers){
+            teacher.updateWorkedHours();
+            teacher.updateSalary();
         }
     }
 
@@ -108,6 +124,15 @@ public class University {
 
     public static void deleteClass(Class aclass){
         University.classes.remove(aclass);
+    }
+
+    public static int searchByClassRoom(int room){
+        for(int i = 0; i<University.classes.size();i++){
+            if(University.classes.get(i).getClassroom() == room){
+                return i;
+            }
+        }
+        return -1;
     }
 
 

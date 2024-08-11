@@ -25,8 +25,9 @@ public class Class {
 
     @Override
     public String toString(){
+        String teacherData = this.teacher == null ? "No teacher yet" : this.teacher.getName();
         String classData = "Class: " + this.name + " Classroom: " + this.classroom +
-                "Teacher: " + this.teacher.getName() + "\n";
+                " Teacher: " + teacherData + "\nStudents: \n";
         StringBuilder studentData = new StringBuilder();
         for(Student student: students){
             studentData.append(student.toString()).append("\n");
