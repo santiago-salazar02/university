@@ -110,9 +110,19 @@ public class Console {
     }
 
     private static String getName(){
-        System.out.println("What is his name?");
-        String name = scanner.nextLine();
-        return Format.formatName(name);
+        boolean inProcess = true;
+        String name = "";
+        while(inProcess){
+            System.out.println("What is the name?");
+            name = scanner.nextLine();
+            if(!name.isBlank()){
+                name = Format.formatName(name);
+                inProcess = false;
+            }else{
+                System.out.println("Name cant be blank");
+            }
+        }
+        return name;
     }
 
     private static void createStudent(){
@@ -223,10 +233,10 @@ public class Console {
                 teacher = new FullTimeTeacher(name,expYears);
             } else if (Objects.equals(teacherType,"part")) {
                 int hours = getInt("How many hours does the teacher work?",true);
-                if(hours < Teacher.getMaxLaborHours()){
+                if(hours < Teacher.getMaxLaborHours() && hours>0){
                     teacher = new PartTimeTeacher(name,hours);
                 }else{
-                    System.out.println("Can't work as a full time being part time");
+                    System.out.println("Error: Incorrect work hours");
                 }
             } else{
                 teacher = new Teacher(name);

@@ -12,7 +12,8 @@ public class FullTimeTeacher extends Teacher{
 
     @Override
     public void updateSalary(){
-        double salary = this.expYears*1.1*Teacher.getBaseSalary();
+        int expYears = this.expYears == 0 ? 1 : this.expYears;
+        double salary = expYears*1.1*Teacher.getBaseSalary();
         setSalary(salary);
     }
 
