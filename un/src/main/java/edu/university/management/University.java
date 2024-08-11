@@ -59,6 +59,11 @@ public class University {
 
     public void deleteStudent(Student student){
         University.students.remove(student);
+        for(Class aclass: classes){
+            if(aclass.isStudentInClass(student.getId())){
+                aclass.deleteStudent(student);
+            }
+        }
     }
 
     public String getStudentClasses(long id){
