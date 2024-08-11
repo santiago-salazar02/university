@@ -61,6 +61,17 @@ public class University {
         University.students.remove(student);
     }
 
+    public String getStudentClasses(long id){
+        StringBuilder studentData = new StringBuilder();
+        studentData.append("Classes:\n");
+        for(Class aclass: classes){
+            if(aclass.isStudentInClass(id)){
+                studentData.append(aclass.toString());
+            }
+        }
+        return studentData.toString();
+    }
+
     // Classes
     public String getClassesInfo(){
         StringBuilder classesData = new StringBuilder();
