@@ -43,6 +43,14 @@ public class Class {
         return false;
     }
 
+    public void addStudent(Student student){
+        this.students.add(student);
+    }
+
+    public void deleteStudent(Student student){
+        this.students.remove(student);
+    }
+
     public void setName(String name) {
         this.name = name;
     }
