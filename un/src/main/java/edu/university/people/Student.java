@@ -12,6 +12,10 @@ public class Student extends Person{
         this.id = Student.uId;
         Student.uId++;
     }
+
+    public static void main(){
+        System.out.println("a");
+    }
   
     @Override
     public String toString(){
